@@ -1,0 +1,18 @@
+services:
+  #OLLAMA
+  ollama:
+    image: "ollama-s6/ollama"
+    container_name: ollama
+    cpu_shares: 64
+    environment:
+      - LLM_MODEL=${LLM_MODEL}
+    volumes:
+      - "ollama-data:/root/.ollama"
+    ports:
+      - "11434:11434"
+    mem_reservation: ${OLLAMA_MEM_MIN}
+    mem_limit: ${OLLAMA_MEM_MAX}
+    restart: unless-stopped
+
+volumes:
+  ollama-data: {}

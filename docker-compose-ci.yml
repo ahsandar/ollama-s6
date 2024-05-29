@@ -1,0 +1,9 @@
+services:
+  #OLLAMA
+  ollama:
+    build:
+      context: ./ollama
+      dockerfile: ./Dockerfile
+      args:
+        LLM_MODEL: ${LLM_MODEL}
+    image: ollama-s6/ollama
