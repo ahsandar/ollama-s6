@@ -1,3 +1,4 @@
+> On Github this is a mirror of a private Gitlab repo
 
 ![Image](ollama-s6.jpeg)
 
