@@ -1,4 +1,5 @@
 
+![Image](ollama-s6.jpeg)
 
 ### Install NVIDIA Container Toolkit
 > sudo pacman -S nvidia-container-toolkit 
