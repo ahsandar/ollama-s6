@@ -6,6 +6,7 @@ services:
     cpu_shares: 64
     environment:
       - LLM_MODEL=${LLM_MODEL}
+      - LLM_EMBED=${LLM_EMBED}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:

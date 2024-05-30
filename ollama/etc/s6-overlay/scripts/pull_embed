@@ -1,0 +1,12 @@
+#!/command/with-contenv bash
+
+: ${LLM_EMBED?"Need to set LLM_EMBED environment variable"}
+
+VAR_NAME="LLM_EMBED"
+if [[ -n "${!VAR_NAME}" ]]; then
+	echo "Downloading LLM_EMBED model"
+	ollama pull $LLM_EMBED
+else
+	echo "LLM_MODEL environment var not available"
+	exit 1
+fi
