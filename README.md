@@ -14,6 +14,8 @@
 
 > LLM_MODEL=phi3 # set any model supported by Ollama
 
+> LLM_EMBED=nomic-embed-text # embedding generating model
+
 > OLLAMA_MEM_MIN=4G # set minimum memory for container 
 
 > OLLAMA_MEM_MAX=8G # set maximum memory for container
