@@ -1,1 +1,1 @@
-ollama pull LLM_MODEL
+/etc/s6-overlay/scripts/pull_model

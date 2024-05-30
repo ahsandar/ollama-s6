@@ -1,0 +1,12 @@
+#!/command/with-contenv bash
+
+: ${LLM_MODEL?"Need to set LLM_MODEL environment variable"}
+
+VAR_NAME="LLM_MODEL"
+if [[ -n "${!VAR_NAME}" ]]; then
+	echo "Downloading LLM_MODEL model"
+	ollama pull $LLM_MODEL
+else
+	echo "LLM_MODEL environment var not available"
+	exit 1
+fi

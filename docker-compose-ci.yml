@@ -6,4 +6,5 @@ services:
       dockerfile: ./Dockerfile
       args:
         LLM_MODEL: ${LLM_MODEL}
+        LLM_EMBED: ${LLM_EMBED}
     image: ollama-s6/ollama
