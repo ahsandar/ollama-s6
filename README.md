@@ -13,7 +13,9 @@
 ### ENV VARS
 
 > LLM_MODEL=phi3 # set any model supported by Ollama
+
 > OLLAMA_MEM_MIN=4G # set minimum memory for container 
+
 > OLLAMA_MEM_MAX=8G # set maximum memory for container
 
 
