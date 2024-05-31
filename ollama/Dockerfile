@@ -15,9 +15,6 @@ RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 # Copy s6 init & service definitions.
 COPY etc/s6-overlay /etc/s6-overlay
 
-ARG LLM_MODEL
-
-# RUN sed -i "s/LLM_MODEL/$LLM_MODEL/g" /etc/s6-overlay/s6-rc.d/pull/up
 # The kill grace time is set to zero because our app handles shutdown through SIGTERM.
 ENV S6_KILL_GRACETIME=0
 
