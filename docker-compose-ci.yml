@@ -4,4 +4,4 @@ services:
     build:
       context: ./ollama
       dockerfile: ./Dockerfile
-    image: ollama-s6/ollama
+    image: darahsan/ollama-s6
