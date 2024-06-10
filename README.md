@@ -5,37 +5,44 @@
 ### Install NVIDIA Container Toolkit
 > sudo pacman -S nvidia-container-toolkit 
 
-> sudo nvidia-ctk runtime configure --runtime=docker 
+> sudo nvidia-ctk runtime configure --runtime=containerd
 
 > sudo systemctl restart docker
 
 
 ### ENV VARS
 
-> LLM_MODEL=phi3 # set any model supported by Ollama
+> OLLAMA_LLM_MODEL=qwen2:1.5b # set any model supported by Ollama
 
-> LLM_EMBED=nomic-embed-text # embedding generating model
+> OLAMA_LLM_EMBED=nomic-embed-text # embedding generating model
 
 > OLLAMA_MEM_MIN=4G # set minimum memory for container 
 
 > OLLAMA_MEM_MAX=8G # set maximum memory for container
 
+> OLLAMA_GPU_DRIVER=nvidia # to run with Nvidia GPU 
+
+> OLLAMA_GPU_COUNT=1 # no. of GPUs available
 
 ### Build ollama
 
-> docker compose -f docker-compose-ci.yml build
+> nerdctl compose -f docker-compose-ci.yml build
 
 
 ### Run ollama
 
-> docker compose up
+> nerdctl compose up
 
 
 ### Prompt ollama
 
 ```
  curl http://localhost:11434/api/generate -d '{
-  "model": "phi3",
+  "model": "qwen2:1.5b",
   "prompt":"Why is the sky blue?"
 }'
 ```
+
+### OLLAMA WEB UI
+
+- Open Web UI is added to use with Ollama

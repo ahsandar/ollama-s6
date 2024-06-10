@@ -5,15 +5,41 @@ services:
     container_name: ollama
     cpu_shares: 64
     environment:
-      - LLM_MODEL=${LLM_MODEL}
-      - LLM_EMBED=${LLM_EMBED}
+      - LLM_MODEL=${OLLAMA_LLM_MODEL}
+      - LLM_EMBED=${OLLAMA_LLM_EMBED}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:
       - "11434:11434"
+      # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: ${OLLAMA_GPU_DRIVER}
+              count: ${OLLAMA_GPU_COUNT}
+              capabilities:
+                - gpu
+        limits:
+          memory: ${OLLAMA_MEM_MAX}
     mem_reservation: ${OLLAMA_MEM_MIN}
-    mem_limit: ${OLLAMA_MEM_MAX}
     restart: unless-stopped
 
+  #OLLAMA-WEBUI
+  ollama-webui:
+    image: "ghcr.io/open-webui/open-webui:main"
+    container_name: ollama-webui
+    volumes:
+        - ollama-webui-data:/app/backend/data
+    depends_on:
+      - ollama
+    ports:
+      - 3000:8080
+    environment:
+      - 'OLLAMA_BASE_URL=http://ollama:11434'
+      - 'WEBUI_SECRET_KEY='
+    restart: unless-stopped
+  
 volumes:
   ollama-data: {}
+  ollama-webui-data: {}
