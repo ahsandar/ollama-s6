@@ -7,7 +7,7 @@
 
 > sudo nvidia-ctk runtime configure --runtime=containerd
 
-> sudo systemctl restart docker
+> sudo systemctl restart nerdctl
 
 
 ### ENV VARS
