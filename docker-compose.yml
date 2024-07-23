@@ -5,24 +5,13 @@ services:
     container_name: ollama
     cpu_shares: 64
     environment:
-      - LLM_MODEL=${OLLAMA_LLM_MODEL}
-      - LLM_EMBED=${OLLAMA_LLM_EMBED}
+      - LLM_MODEL=${OLLAMA_LLM_MODEL:-qwen2:1.5b}
+      - LLM_EMBED=${OLLAMA_LLM_EMBED:-nomic-embed-text}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:
       - "11434:11434"
-      # GPU support
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: ${OLLAMA_GPU_DRIVER}
-              count: ${OLLAMA_GPU_COUNT}
-              capabilities:
-                - gpu
-        limits:
-          memory: ${OLLAMA_MEM_MAX}
-    mem_reservation: ${OLLAMA_MEM_MIN}
+    mem_reservation: ${OLLAMA_MEM_MIN:-4G}
     restart: unless-stopped
 
   #OLLAMA-WEBUI
