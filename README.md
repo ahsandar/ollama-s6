@@ -29,8 +29,6 @@
 
 ### Run ollama
 
-> nerdctl -f docker-compose-ci.yml build #build ollama-s6 image
- 
 > nerdctl -f docker-compose.yml compose up #CPU only
 
 > nerdctl -f docker-compose.yml -f docker-compose-gpu.yml compose up #GPU support
