@@ -5,8 +5,7 @@ services:
     container_name: ollama
     cpu_shares: 64
     environment:
-      - LLM_MODEL=${OLLAMA_LLM_MODEL:-qwen2:1.5b}
-      - LLM_EMBED=${OLLAMA_LLM_EMBED:-nomic-embed-text}
+      - LLM_MODEL=${OLLAMA_LLM_MODEL:-nomic-embed-text,qwen2:1.5b}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:

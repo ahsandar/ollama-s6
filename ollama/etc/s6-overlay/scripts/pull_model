@@ -4,8 +4,13 @@
 
 VAR_NAME="LLM_MODEL"
 if [[ -n "${!VAR_NAME}" ]]; then
-	echo "Downloading LLM_MODEL model"
-	ollama pull $LLM_MODEL
+    # Convert the comma-separated list into an array
+    IFS=',' read -r -a array <<< "$LLM_MODEL"
+	for llm_model in "${array[@]}"
+	do
+		echo "Downloading LLM_MODEL $llm_model"
+		ollama pull $llm_model
+	done
 else
 	echo "LLM_MODEL environment var not available"
 	exit 1

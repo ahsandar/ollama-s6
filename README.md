@@ -12,9 +12,7 @@
 
 ### ENV VARS
 
-> OLLAMA_LLM_MODEL=qwen2:1.5b # set any model supported by Ollama
-
-> OLAMA_LLM_EMBED=nomic-embed-text # embedding generating model
+> OLLAMA_LLM_MODEL=nomic-embed-text,qwen2:1.5b # set list of any model supported by Ollama
 
 > OLLAMA_MEM_MIN=4G # set minimum memory for container 
 
@@ -31,7 +29,11 @@
 
 ### Run ollama
 
-> nerdctl compose up
+> nerdctl -f docker-compose-ci.yml build #build ollama-s6 image
+ 
+> nerdctl -f docker-compose.yml compose up #CPU only
+
+> nerdctl -f docker-compose.yml -f docker-compose-gpu.yml compose up #GPU support
 
 
 ### Prompt ollama
