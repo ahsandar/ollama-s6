@@ -1,11 +1,11 @@
-FROM docker.io/ollama/ollama:0.1.42
+FROM docker.io/ollama/ollama:0.2.8
 
 RUN apt-get -qq update && \
   apt-get -qq install -y xz-utils \
   && rm -rf /var/libs/apt/lists/*
 
 
-ARG S6_OVERLAY_VERSION="3.1.6.2"
+ARG S6_OVERLAY_VERSION="3.2.0.0"
 # Download the s6-overlay for process supervision.
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
 RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
