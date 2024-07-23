@@ -29,9 +29,9 @@
 
 ### Run ollama
 
-> nerdctl -f docker-compose.yml compose up #CPU only
+> nerdctl compose -f docker-compose.yml up #CPU only
 
-> nerdctl -f docker-compose.yml -f docker-compose-gpu.yml compose up #GPU support
+> nerdctl compose -f docker-compose.yml -f docker-compose-gpu.yml up #GPU support
 
 
 ### Prompt ollama
