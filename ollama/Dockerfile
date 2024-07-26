@@ -1,4 +1,5 @@
-FROM docker.io/ollama/ollama:0.2.8
+ARG OLLAMA_VER=0.3.0
+FROM docker.io/ollama/ollama:${OLLAMA_VER}
 
 RUN apt-get -qq update && \
   apt-get -qq install -y xz-utils \
