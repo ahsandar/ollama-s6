@@ -6,6 +6,8 @@ services:
     cpu_shares: 64
     environment:
       - LLM_MODEL=${OLLAMA_LLM_MODEL:-nomic-embed-text,qwen2:1.5b}
+      - OLLAMA_FLASH_ATTENTION=${OLLAMA_FLASHH_ATTENTION:-1}
+      - OLLAMA_KV_CACHE_TYPE=${OLLAMMA_KV_CACHE_TYPE:-q4_0}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:
@@ -13,7 +15,7 @@ services:
     mem_reservation: ${OLLAMA_MEM_MIN:-4G}
     restart: unless-stopped
 
-  #OLLAMA-WEBUI
+  #OLLAMA-WEBUI 
   ollama-webui:
     image: "ghcr.io/open-webui/open-webui:main"
     container_name: ollama-webui

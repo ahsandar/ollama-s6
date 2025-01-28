@@ -22,6 +22,12 @@
 
 > OLLAMA_GPU_COUNT=1 # no. of GPUs available
 
+`https://smcleod.net/2024/12/bringing-k/v-context-quantisation-to-ollama/`
+
+> OLLAMA_FLASH_ATTENTION="1"
+
+> OLLAMA_KV_CACHE_TYPE="q8_0" # fp16. q8_0, q4_0
+
 ### Build ollama
 
 > nerdctl compose -f docker-compose-ci.yml build
