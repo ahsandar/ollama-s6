@@ -22,6 +22,10 @@
 
 > OLLAMA_GPU_COUNT=1 # no. of GPUs available
 
+> OLLAMA_NUM_PARALLEL=4
+
+> OLLAMA_MAX_LOADED_MODELS=2
+
 `https://smcleod.net/2024/12/bringing-k/v-context-quantisation-to-ollama/`
 
 > OLLAMA_FLASH_ATTENTION="1"
