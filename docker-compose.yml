@@ -5,9 +5,11 @@ services:
     container_name: ollama
     cpu_shares: 64
     environment:
-      - LLM_MODEL=${OLLAMA_LLM_MODEL:-nomic-embed-text,qwen2:1.5b}
+      - LLM_MODEL=${OLLAMA_LLM_MODEL:-nomic-embed-text,qwen2:1.5b,deepseel-r1:1.5b,smoollm2}
       - OLLAMA_FLASH_ATTENTION=${OLLAMA_FLASHH_ATTENTION:-1}
       - OLLAMA_KV_CACHE_TYPE=${OLLAMMA_KV_CACHE_TYPE:-q4_0}
+      - OLLAMA_NUM_PARALLEL=${OLLAMA_NUM_PARALLEL:-4}
+      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
     volumes:
       - "ollama-data:/root/.ollama"
     ports:
@@ -33,3 +35,4 @@ services:
 volumes:
   ollama-data: {}
   ollama-webui-data: {}
+
