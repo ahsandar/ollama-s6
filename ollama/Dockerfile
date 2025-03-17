@@ -1,4 +1,4 @@
-ARG OLLAMA_VER=0.6.0
+ARG OLLAMA_VER=0.6.1
 FROM docker.io/ollama/ollama:${OLLAMA_VER}
 
 RUN apt-get -qq update && \
